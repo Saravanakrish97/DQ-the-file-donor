@@ -13,27 +13,31 @@ def is_enabled(value, default):
 
 # Bot information
 SESSION = environ.get('SESSION', 'Media_search')
-API_ID = int(environ['API_ID'])
-API_HASH = environ['API_HASH']
-BOT_TOKEN = environ['BOT_TOKEN']
+# API_ID = int(environ['API_ID'])
+# API_HASH = environ['API_HASH']
+# BOT_TOKEN = environ['BOT_TOKEN']
+API_ID = int(environ.get('API_ID', '20389440'))
+API_HASH = environ.get('API_HASH', 'a1a06a18eb9153e9dbd447cfd5da2457')
+BOT_TOKEN = environ.get('BOT_TOKEN', "")
+
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = is_enabled((environ.get('USE_CAPTION_FILTER', 'True')), True)
 
-PICS = (environ.get('PICS', 'https://telegra.ph/file/6a0726f79acd8300e9a04.jpg https://telegra.ph/file/68289fefb76dbc43b766d.jpg https://telegra.ph/file/0caad29c0cf91c23fb1b6.jpg https://telegra.ph/file/8c34c755dd16581c1c6b5.jpg https://telegra.ph/file/365e35b554e5a3ea83857.jpg https://telegra.ph/file/07f185825c5b7bfd6fbfb.jpg https://telegra.ph/file/85f95494565a762edb3e7.jpg https://telegra.ph/file/708a1d6ce805fcc6a46d0.jpg https://telegra.ph/file/d799c1a964f211028cc97.jpg https://telegra.ph/file/b987425b80bca0cf45c7e.jpg https://telegra.ph/file/2a8b3779760289b76de24.jpg https://telegra.ph/file/47961be968719b3e24cf0.jpg https://telegra.ph/file/2e127b0f6b1810d733c09.jpg https://telegra.ph/file/281b18770a43a29120252.jpg https://telegra.ph/file/2086dd2aa8382e758a599.jpg https://telegra.ph/file/fcc849db4bf5c517f0f8d.jpg')).split()
-NOR_IMG = environ.get("NOR_IMG", "https://telegra.ph/file/46443096bc6895c74a716.jpg")
+PICS = (environ.get('PICS', 'https://graph.org/vTelegraphBot-11-04-5 https://envs.sh/jem.jpg https://envs.sh/jeX.jpg')).split()
+NOR_IMG = environ.get("NOR_IMG", "https://te.legra.ph/file/a27dc8fe434e6b846b0f8.jpg")
 MELCOW_VID = environ.get("MELCOW_VID", "https://telegra.ph/file/451f038b4e7c2ddd10dc0.mp4")
-SPELL_IMG = environ.get("SPELL_IMG", "https://telegra.ph/file/5e2d4418525832bc9a1b9.jpg")
+SPELL_IMG = environ.get("SPELL_IMG", "https://graph.org/file/789e3888ab16ce1a9a535.jpg")
 
 # Admins, Channels & Users
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '0').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '2063915639 2100936996 1902515282 5932230962').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001575521444 -1001831261465 -1002109559685 -1002134479029 -1002225923778 -1002068765207').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 auth_channel = environ.get('AUTH_CHANNEL')
 auth_grp = environ.get('AUTH_GROUP')
-AUTH_CHANNEL = [int(auth_channel) for auth_channel in environ.get('AUTH_CHANNEL', '').split() if id_pattern.search(auth_channel)]
+AUTH_CHANNEL = [int(auth_channel) for auth_channel in environ.get('AUTH_CHANNEL', '-1002352846671 -1001675270280').split() if id_pattern.search(auth_channel)]
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 support_chat_id = environ.get('SUPPORT_CHAT_ID')
 reqst_channel = environ.get('REQST_CHANNEL_ID')
@@ -43,9 +47,9 @@ NO_RESULTS_MSG = is_enabled((environ.get("NO_RESULTS_MSG", 'False')), False)
 
 # MongoDB information
 SECONDDB_URI = environ.get('SECONDDB_URI', None)
-DATABASE_URI = environ.get('DATABASE_URI', "")
-DATABASE_NAME = environ.get('DATABASE_NAME', "Rajappan")
-COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://tamilmovie:tamilmovie@cluster0.lxatf.mongodb.net/tamilmovie?retryWrites=true&w=majority")
+DATABASE_NAME = environ.get('DATABASE_NAME', "TamilBots")
+COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Tamil_files')
 
 # Others
 IS_VERIFY = is_enabled((environ.get('IS_VERIFY', 'False')), False)
@@ -59,13 +63,13 @@ DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in enviro
 MAX_B_TN = environ.get("MAX_B_TN", "5")
 MAX_BTN = is_enabled((environ.get('MAX_BTN', "True")), True)
 PORT = environ.get("PORT", "8080")
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/+GOFte-Rz2tcxODg1')
-CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/+mCMdCb_ymAowZmNl')
+GRP_LNK = environ.get('GRP_LNK', 'https://t.me/MovieDiscussion24x7')
+CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/TownBus')
 MSG_ALRT = environ.get('MSG_ALRT', 'Wʜᴀᴛ Aʀᴇ Yᴏᴜ Lᴏᴏᴋɪɴɢ Aᴛ ?')
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'DQ_The_File_Donor_Support')
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1002062053288'))
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'TamilSupport')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
-IMDB = is_enabled((environ.get('IMDB', "True")), True)
+IMDB = is_enabled((environ.get('IMDB', "False")), False)
 AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "True")), True)
 AUTO_DELETE = is_enabled((environ.get('AUTO_DELETE', "True")), True)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), True)
